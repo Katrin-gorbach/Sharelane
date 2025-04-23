@@ -22,10 +22,10 @@ public class ZipCodeTest {
 		 */
 
 	@Test
-	public  void checkZipCode4Digits(){
+	public void checkZipCode4Digits() {
 		setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 		WebDriver browser = new ChromeDriver(); // WebDriver - Selenium class помогает управлять браузером
-		browser.manage().timeouts().implicitlyWait(20l, TimeUnit.SECONDS);
+		browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		browser.get("https://www.sharelane.com/cgi-bin/register.py"); // get - тк по протоколу по http. method get
 		// of http protocol
 		//<input type="text" name="zip_code" value="">
@@ -37,6 +37,8 @@ public class ZipCodeTest {
 		Assert.assertEquals(actualErrorMessage, "Oops, error on page. ZIP code should have 5 digits");
 		browser.quit();
 	}
+
+
 
 
 }
